@@ -24,6 +24,7 @@ import sys
 #-----GLOBALS----------
 labels = {"airplane":"2","automobile":"2","bird":"3","cat":"4","deer":"5","dog":"6","frog":"7","horse":"8","ship":"9","truck":"10"}
 filename = "labels_file.txt" #TODO: Fix this
+format = ".png"
 #--------------------
 
 def createLabelsFile(source,destination):
@@ -33,7 +34,7 @@ def createLabelsFile(source,destination):
 		reader = csv.reader(csvfile)
 		next(reader,None) #Ignore the header (id,label)
 		for row in reader: 
-			toWrite = row[0] + ".jpg" + " " + labels[row[1]] #This is the format that convert_imageset.cpp wants
+			toWrite = row[0] + format + " " + labels[row[1]] #This is the format that convert_imageset.cpp wants
 			f.write(toWrite+'\n')
 	f.close()
 			
