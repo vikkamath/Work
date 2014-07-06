@@ -16,8 +16,8 @@ TOOLS=$caffe/build/tools
 PROTOTXT_LR1=$analysis/db/vanilla/cifar10_full_solver.prototxt
 PROTOTXT_LR2=$analysis/db/vanilla/cifar10_full_solver_lr1.prototxt
 PROTOTXT_LR3=$analysis/db/vanilla/cifar10_full_solver_lr2.prototxt
-SOLVERSTATE_1=$analysis/db/vanilla/cifar10_vanilla_60000.solverstate
-SOLVERSTATE_2=$analysis/db/vanilla/cifar10_vanilla_65000.solverstate
+SOLVERSTATE_1=$analysis/db/vanilla/cifar10_vanilla_iter_60000.solverstate
+SOLVERSTATE_2=$analysis/db/vanilla/cifar10_vanilla_iter_65000.solverstate
 GLOGDIR=$analysis/db/vanilla/vanilla/glog/
 
 #-------
