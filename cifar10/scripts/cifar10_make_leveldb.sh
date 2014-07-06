@@ -20,7 +20,7 @@ LEVELDB_DATA_ROOT=$analysis/db/vanilla
 TRAIN_LEVELDB_NAME="cifar10_train_leveldb_vanilla"
 VAL_LEVELDB_NAME="cifar10_val_leveldb_vanilla"
 
-RESIZE=false
+RESIZE=true
 #Set RESIZE to false if the images are already 
 # 	256x256
 #-------
@@ -31,8 +31,8 @@ RESIZE=false
 #-------RESIZE-----------------------
 #----------
 if $RESIZE; then
-	RESIZE_HEIGHT=256
-	RESIZE_WIDTH=256
+	RESIZE_HEIGHT=32
+	RESIZE_WIDTH=32
 else
 	RESIZE_HEIGHT=0
 	RESIZE_WIDTH=0
@@ -70,6 +70,9 @@ fi
 
 #Make the experiment database if it doesn't exist
 mkdir -p $LEVELDB_DATA_ROOT
+#Remove the databases if they already exist
+rm -rf $LEVELDB_DATA_ROOT/$TRAIN_LEVELDB_NAME
+rm -rf $LEVELDB_DATA_ROOT/$VAL_LEVELDB_NAME
 
 echo "Constructing training and validation leveldb"
 
