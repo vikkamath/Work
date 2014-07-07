@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #
 #DESCRIPTION: Starts training the model for CIFAR 10
 #
@@ -37,21 +37,21 @@ GLOGDIR=$analysis/db/vanilla/vanilla/glog/
 mkdir -p $GLOGDIR
 
 #Train
-GLOG_logtostderr=0
-GLOG_log_dir=$GLOGDIR
+export GLOG_logtostderr=1
+export GLOG_log_dir=$GLOGDIR
 $TOOLS/train_net.bin \
 	$PROTOTXT_LR1 \
 
 #Reduce learning rate by a factor of 10
-GLOG_logtostderr=0
-GLOG_log_dir=$GLOGDIR
+export GLOG_logtostderr=1
+export GLOG_log_dir=$GLOGDIR
 $TOOLS/train_net.bin \
 	$PROTOTXT_LR2 \
 	$SOLVERSTATE_1 \
 
 #Reduce learning rate by a factor of 10, again
-GLOG_logtostderr=0
-GLOG_log_dir=$GLOGDIR
+export GLOG_logtostderr=1
+export GLOG_log_dir=$GLOGDIR
 $TOOLS/train_net.bin \
 	$PROTOTXT_LR2 \
 	$SOLVERSTATE_2 \
